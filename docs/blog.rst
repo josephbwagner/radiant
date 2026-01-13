@@ -10,6 +10,7 @@ Latest Posts
    :maxdepth: 1
    :caption: 2026
    :titlesonly:
+
    blog-2026
 
 About This Blog
