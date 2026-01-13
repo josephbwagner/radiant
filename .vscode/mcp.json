@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "context7": {
+      "url": "http://localhost:8080/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${env:CONTEXT7_API_KEY}"
+      }
+    }
+  }
+}
