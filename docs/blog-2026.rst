@@ -1,0 +1,10 @@
+2026 Development Blog Entries
+==============================
+
+All development blog entries from 2026.
+
+.. toctree::
+   :maxdepth: 1
+   :reversed:
+
+   blog/2026/01-13-phase-0-complete

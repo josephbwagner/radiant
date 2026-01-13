@@ -153,6 +153,7 @@ radiant/
 ## Documentation
 
 - [Full Documentation](https://josephbwagner.github.io/radiant/)
+- [Development Blog](https://josephbwagner.github.io/radiant/blog.html) - Milestones, decisions, and lessons learned
 - [CLI Reference](docs/user/cli-reference.md)
 - [API Documentation](https://josephbwagner.github.io/radiant/api/)
 - [Contributing Guide](CONTRIBUTING.md)

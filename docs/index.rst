@@ -10,6 +10,7 @@ Professional administration platform for Meshtastic radio networks.
    user/installation
    user/quickstart
    api/index
+   blog
 
 Overview
 --------
