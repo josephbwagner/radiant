@@ -33,6 +33,7 @@ jobs:
         working-directory: docs
         run: |
           pip install -e ../cli
+          pip install -e ../server
           pip install sphinx furo sphinx-autodoc-typehints
           sphinx-build -b html . _build/html -W
 

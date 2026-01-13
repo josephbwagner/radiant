@@ -1,5 +1,5 @@
 Radiant Documentation
-====================
+=====================
 
 Professional administration platform for Meshtastic radio networks.
 
@@ -9,6 +9,8 @@ Professional administration platform for Meshtastic radio networks.
 
    user/installation
    user/quickstart
+   user/cli-reference
+   user/configuration
    api/index
    blog
 

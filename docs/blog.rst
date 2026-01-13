@@ -10,8 +10,7 @@ Latest Posts
    :maxdepth: 1
    :caption: 2026
    :reversed:
-
-   blog/2026/01-13-phase-0-complete
+   blog-2026
 
 About This Blog
 ---------------
