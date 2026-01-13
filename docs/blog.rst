@@ -9,7 +9,7 @@ Latest Posts
 .. toctree::
    :maxdepth: 1
    :caption: 2026
-   :reversed:
+   :titlesonly:
    blog-2026
 
 About This Blog
