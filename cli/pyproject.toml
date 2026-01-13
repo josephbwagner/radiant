@@ -24,7 +24,7 @@ ruff = "^0.11.13"
 mypy = "^1.16"
 pre-commit = "^4.2"
 sphinx = "^7.0"
-furo = "^2024.8"
+furo = "^2025.12"
 sphinx-autodoc-typehints = "^2.3"
 bandit = {extras = ["toml"], version = "^1.8"}
 types-pyyaml = "^6.0"
