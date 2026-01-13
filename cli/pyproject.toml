@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "radiant-cli"
 version = "0.1.0"
-description = "Offline-first software for Meshtastic hardware and networks"
+description = "CLI for Meshtastic hardware and networks"
 authors = ["Joseph Wagner <j.wagner1024@gmail.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "radiant-server"
 version = "0.1.0"
-description = "Backend server for Radiant Meshtastic administration platform"
+description = "Backend server for Radiant Meshtastic hardware and networks"
 authors = ["Joseph Wagner <j.wagner1024@gmail.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
