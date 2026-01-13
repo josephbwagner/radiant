@@ -1,32 +1,33 @@
 # Radiant
 
-**Professional administration platform for Meshtastic radio networks**
+## Offline-first software for Meshtastic hardware and networks
 
 [![CI](https://github.com/josephbwagner/radiant/workflows/CI/badge.svg)](https://github.com/josephbwagner/radiant/actions)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
-Clean, succinct, professional administration tools for Meshtastic mesh networks. No emojis, enterprise-grade quality.
-
 ## Features
 
 ### CLI Tools (radiant-cli)
-- Comprehensive device diagnostics with auto-fix recommendations
+
+- Cross-platform support (Linux, macOS, Windows via WSL)
+- Device diagnostics with auto-fix recommendations
 - Real-time network monitoring
 - Device backup and configuration management
-- Cross-platform support (Linux, macOS, Windows)
 - Multiple output formats (table, JSON, YAML)
 
 ### Server Backend (radiant-server)
+
 - FastAPI-based REST API with WebSocket support
 - PostgreSQL database for historical data
-- Background monitoring service
+- Persistent monitoring service
 - Alert system with multiple notification channels
 - OpenAPI documentation
 
 ### Web Dashboard (frontend)
+
 - React 18 + TypeScript + Vite
-- Real-time network monitoring
+- Real-time network monitoring dashboard
 - Historical data visualization
 - Node management and diagnostics
 - Mobile-responsive design
@@ -54,6 +55,7 @@ Access the web interface at `http://localhost:3000`
 ## Installation
 
 ### Requirements
+
 - **CLI:** Python 3.9+
 - **Server:** Python 3.12+
 - **Frontend:** Node.js 20+
@@ -77,25 +79,21 @@ pip install radiant-server
 git clone https://github.com/josephbwagner/radiant.git
 cd radiant
 
-# CLI
-cd cli
-poetry install
-poetry run pytest
-
-# Server
-cd ../server
-poetry install
-poetry run pytest
-
-# Frontend
-cd ../frontend
-npm install
-npm run dev
+# See individual module READMEs for development setup:
+# - cli/README.md
+# - server/README.md
+# - frontend/README.md
 ```
 
 ## Development
 
-### Setup
+For development setup and guidelines, see the README in each module:
+
+- [CLI Development](cli/README.md)
+- [Server Development](server/README.md)
+- [Frontend Development](frontend/README.md)
+
+### Repository Setup
 
 ```bash
 # Install Poetry
@@ -110,37 +108,11 @@ pip install pre-commit
 pre-commit install
 ```
 
-### CLI Development
-
-```bash
-cd cli
-poetry install
-poetry run ruff check .
-poetry run mypy src
-poetry run pytest
-```
-
-### Server Development
-
-```bash
-cd server
-poetry install
-poetry run uvicorn radiant_server.api.main:app --reload
-```
-
-### Frontend Development
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
 ## Architecture
 
 This project uses a monorepo structure:
 
-```
+```text
 radiant/
 ├── cli/          # Python CLI tools (3.9+)
 ├── server/       # FastAPI backend (3.12+)
@@ -153,26 +125,10 @@ radiant/
 ## Documentation
 
 - [Full Documentation](https://josephbwagner.github.io/radiant/)
-- [Development Blog](https://josephbwagner.github.io/radiant/blog.html) - Milestones, decisions, and lessons learned
+- [Development Blog](https://josephbwagner.github.io/radiant/blog.html)
 - [CLI Reference](docs/user/cli-reference.md)
 - [API Documentation](https://josephbwagner.github.io/radiant/api/)
 - [Contributing Guide](CONTRIBUTING.md)
-
-## Technology Stack
-
-- **CLI:** Python 3.9+, Click, Pydantic, Rich
-- **Server:** Python 3.12+, FastAPI, SQLAlchemy, Alembic, PostgreSQL
-- **Frontend:** React 18, TypeScript, Vite, Zustand, TanStack Query
-- **Code Quality:** Ruff, MyPy, Pytest, pre-commit
-- **CI/CD:** GitHub Actions, Codecov, Dependabot
-- **Deployment:** Docker, Docker Compose, Multi-arch (AMD64 + ARM64)
-
-## Testing
-
-- **Coverage:** 55% minimum, 90% for new code
-- **CLI Tests:** 3 OS × 5 Python versions (3.9-3.13)
-- **Server Tests:** 3 OS × 2 Python versions (3.12-3.13)
-- **Frontend Tests:** TypeScript type checking, ESLint, build validation
 
 ## Contributing
 
@@ -192,9 +148,3 @@ Ready for Phase 1: CLI Foundation + Diagnostics implementation.
 
 - [GitHub Issues](https://github.com/josephbwagner/radiant/issues)
 - [Discussions](https://github.com/josephbwagner/radiant/discussions)
-
-## Acknowledgments
-
-- Built for the Meshtastic community
-- Inspired by professional enterprise tooling practices
-- Powered by modern Python and TypeScript ecosystems
