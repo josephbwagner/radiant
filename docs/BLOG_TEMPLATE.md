@@ -169,7 +169,7 @@ After creating the entry:
    .. toctree::
       :maxdepth: 1
       :reversed:
-      
+
       blog/2026/MM-DD-title
    ```
 
@@ -178,7 +178,7 @@ After creating the entry:
    .. toctree::
       :maxdepth: 1
       :reversed:
-      
+
       blog/YYYY/MM-DD-title
    ```
 

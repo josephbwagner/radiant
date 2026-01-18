@@ -11,6 +11,7 @@ venv/
 dist/
 build/
 *.egg
+bandit-report.json
 
 # Testing
 .pytest_cache/

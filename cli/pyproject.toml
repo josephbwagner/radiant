@@ -23,6 +23,7 @@ pytest-mock = "^3.14"
 ruff = "^0.11.13"
 mypy = "^1.16"
 pre-commit = "^4.2"
+python-semantic-release = "^9.7"
 sphinx = "^7.0"
 furo = "^2025.12"
 sphinx-autodoc-typehints = "^2.3"
@@ -128,3 +129,14 @@ directory = "htmlcov"
 
 [tool.bandit]
 targets = ["src"]
+
+[tool.semantic_release]
+branch = "main"
+tag_format = "cli-v{version}"
+commit_parser = "angular"
+version_variables = ["src/radiant/__init__.py:__version__"]
+version_toml = ["pyproject.toml:tool.poetry.version"]
+changelog_file = "CHANGELOG.md"
+build_command = "poetry build"
+upload_to_release = true
+upload_to_pypi = false

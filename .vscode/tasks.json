@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: ci-checks",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "set -euo pipefail\ncd ${workspaceFolder}/cli\npoetry install\npoetry run ruff check .\npoetry run ruff format --check .\npoetry run mypy src\npoetry run pytest --cov=src/radiant --cov-report=xml --cov-report=term-missing\ncd ${workspaceFolder}/server\npoetry install\npoetry run ruff check .\npoetry run ruff format --check .\npoetry run mypy src\npoetry run pytest --cov=src/radiant_server --cov-report=xml --cov-report=term-missing"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Frontend: ci-checks",
+      "type": "shell",
+      "command": "npm ci && npm run type-check && npm run lint && npm run build",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: build (CI parity)",
+      "type": "shell",
+      "command": "python -m venv .venv && . .venv/bin/activate && pip install -e ../cli && pip install -e ../server && pip install sphinx furo sphinx-autodoc-typehints && sphinx-build -b html . _build/html -W",
+      "options": {
+        "cwd": "${workspaceFolder}/docs"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Security: bandit",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "set -euo pipefail\ncd ${workspaceFolder}/cli\npoetry install\npoetry run bandit -r src/ -f json -o bandit-report.json\ncd ${workspaceFolder}/server\npoetry install\npoetry run bandit -r src/ -f json -o bandit-report.json"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Pre-commit: run all",
+      "type": "shell",
+      "command": "pre-commit run --all-files",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "CI: all (local)",
+      "dependsOn": ["Python: ci-checks", "Frontend: ci-checks", "Docs: build (CI parity)", "Security: bandit", "Pre-commit: run all"],
+      "dependsOrder": "sequence",
+      "group": "build"
+    }
+  ]
+}

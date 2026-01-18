@@ -29,6 +29,7 @@ httpx = "^0.27"
 ruff = "^0.11.13"
 mypy = "^1.16"
 pre-commit = "^4.2"
+python-semantic-release = "^9.7"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -131,3 +132,14 @@ directory = "htmlcov"
 
 [tool.bandit]
 targets = ["src"]
+
+[tool.semantic_release]
+branch = "main"
+tag_format = "server-v{version}"
+commit_parser = "angular"
+version_variables = ["src/radiant_server/__init__.py:__version__"]
+version_toml = ["pyproject.toml:tool.poetry.version"]
+changelog_file = "CHANGELOG.md"
+build_command = "poetry build"
+upload_to_release = true
+upload_to_pypi = false

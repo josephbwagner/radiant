@@ -28,22 +28,50 @@ jobs:
         working-directory: cli
         run: poetry install
 
+      - name: Install security tools (CLI)
+        working-directory: cli
+        run: poetry run pip install safety pip-audit
+
       - name: Run Bandit (CLI)
         working-directory: cli
         run: poetry run bandit -r src/ -f json -o bandit-report.json || true
+
+      - name: Run safety (CLI)
+        working-directory: cli
+        run: poetry run safety check --full-report --json > safety-report.json || true
+
+      - name: Run pip-audit (CLI)
+        working-directory: cli
+        run: poetry run pip-audit --progress-spinner off --format json --desc -o pip-audit-report.json || true
 
       - name: Install Server dependencies
         working-directory: server
         run: poetry install
 
+      - name: Install security tools (Server)
+        working-directory: server
+        run: poetry run pip install safety pip-audit
+
       - name: Run Bandit (Server)
         working-directory: server
         run: poetry run bandit -r src/ -f json -o bandit-report.json || true
 
-      - name: Upload Bandit results
+      - name: Run safety (Server)
+        working-directory: server
+        run: poetry run safety check --full-report --json > safety-report.json || true
+
+      - name: Run pip-audit (Server)
+        working-directory: server
+        run: poetry run pip-audit --progress-spinner off --format json --desc -o pip-audit-report.json || true
+
+      - name: Upload security results
         uses: actions/upload-artifact@v6
         with:
-          name: bandit-reports
+          name: security-reports
           path: |
             cli/bandit-report.json
             server/bandit-report.json
+            cli/safety-report.json
+            server/safety-report.json
+            cli/pip-audit-report.json
+            server/pip-audit-report.json
