@@ -1,10 +1,43 @@
 {
   "servers": {
     "context7": {
-      "url": "http://localhost:8080/mcp",
+      "url": "http://host.docker.internal:8080/mcp",
       "headers": {
         "CONTEXT7_API_KEY": "${env:CONTEXT7_API_KEY}"
       }
+    },
+    "memory": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "-v",
+          "claude-memory:/app/dist",
+          "--rm",
+          "mcp/memory"
+        ]
+      },
+    "openapi-schema": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "${workspaceFolder}:/local-directory",
+        "mcp/openapi-schema"
+      ]
+    },
+    "ast-grep": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "${workspaceFolder}:/local-directory",
+        "mcp/ast-grep"
+      ]
     }
   }
 }
