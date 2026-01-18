@@ -2,13 +2,13 @@
 
 Use this as the shared Copilot instructions for this repo.
 
-- Style: concise and human-readable; prefer diffs/patches over prose.
+- Style: professional; ask when uncertain or ambiguous; add relevant details.
 - Safety: never run destructive commands or delete files without explicit ask.
-- Python: primary interpreter at ./cli/.venv/bin/python for CLI, likewise for server. Use ruff for format/organize imports.
+- Python: use poetry env per module; use strong typing.
 - Frontend: TypeScript + Vite. Use prettier. Keep UI suggestions purposeful (avoid generic layouts).
-- MCP: prefer MCP tools for repo info (fs, git, shell if available) before guessing.
-- Testing: when code changes, write high quality unit tests and verify they pass.
-- Comments: only add brief comments for non-obvious logic.
+- MCP: prefer MCP tools (context7, memory, shell, etc) before guessing.
+- Testing: when code changes add unit tests and verify they pass.
+- Comments: use docstrings for functions/classes; brief comments for complex logic; conventional commit message style.
 - Editing: avoid touching unrelated changes.
 - Security: never expose secrets; ask for explicit direction when making security decisions.
 - Output: mention file paths with line links; keep summaries short and actionable.
