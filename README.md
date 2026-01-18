@@ -93,6 +93,13 @@ For development setup and guidelines, see the README in each module:
 - [Server Development](server/README.md)
 - [Frontend Development](frontend/README.md)
 
+### Devcontainer (optional)
+
+- Prerequisite: Docker running on your host.
+- In VS Code: open the repo and choose “Reopen in Container” (Dev Containers extension will prompt if needed).
+- The container mirrors local tooling (Python 3.12, Node 20, Docker CLI via host socket) and will auto-install project dependencies on first create.
+- If you need MCP servers, ensure host Docker is available; the container shares the host Docker socket.
+
 ### Repository Setup
 
 ```bash

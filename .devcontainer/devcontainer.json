@@ -1,0 +1,34 @@
+{
+  "name": "Radiant Devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "runArgs": ["--add-host=host.docker.internal:host-gateway"],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-python.mypy-type-checker",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
+  "postCreateCommand": "set -e; PY312=$(command -v python3.12 || echo /usr/local/python/3.12.12/bin/python3); $PY312 -m pip install --upgrade pip poetry; cd /workspaces/${localWorkspaceFolderBasename}/cli && poetry env use $PY312 && poetry install; cd /workspaces/${localWorkspaceFolderBasename}/server && poetry env use $PY312 && poetry install; cd /workspaces/${localWorkspaceFolderBasename}/frontend && npm install",
+  "remoteUser": "vscode"
+}
