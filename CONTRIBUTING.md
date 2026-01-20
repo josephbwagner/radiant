@@ -192,6 +192,15 @@ Releases are automated using semantic versioning based on conventional commits:
 - `fix:` → patch version bump (0.0.X)
 - `BREAKING CHANGE:` → major version bump (X.0.0)
 
+## Release Automation
+
+- Conventional commits: prefer `poetry run cz commit`
+- Local helpers: `poetry run semantic-release version --print`, `poetry run cz changelog`, `poetry run cz commit`, `poetry build`
+- Changelog: root CHANGELOG.md is auto-updated by semantic-release
+- Tagging: `cli-v{version}` for CLI, `server-v{version}` for server
+- Workflow: release.yml runs CI and then semantic-release in cli/ and server/
+- Version updates: semantic-release writes versions to pyproject.toml and __version__ modules
+
 ## Questions?
 
 - Open an issue for bugs or feature requests

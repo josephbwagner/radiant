@@ -136,7 +136,8 @@ targets = ["src"]
 [tool.semantic_release]
 branch = "main"
 tag_format = "server-v{version}"
-commit_parser = "angular"
+commit_parser = "conventional"
+repo_dir = ".."
 version_variables = ["src/radiant_server/__init__.py:__version__"]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 changelog_file = "CHANGELOG.md"

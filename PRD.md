@@ -35,27 +35,23 @@ Establish semantic versioning and automated releases for Radiant (CLI and Server
 - GITHUB_TOKEN available for tagging and releases; no PyPI token required.
 
 ## Release Automation Tasks
-- [ ] Enforce conventional commits in workflow and docs
-  - Document `poetry run cz commit` as the recommended path.
-- [ ] Add VS Code task alias for conventional commits.
-- [ ] Version source of truth per package
-  - Keep `pyproject.toml` and `__version__` in `src/radiant/__init__.py` and `src/radiant_server/__init__.py` synced via semantic-release config.
-  - Maintain distinct tag formats: `cli-v{version}`, `server-v{version}`.
-- [ ] Changelog policy
-  - Single root `CHANGELOG.md` updated by semantic-release per release.
-- [ ] Release workflow hardening
-  - Keep `.github/workflows/release.yml` invoking CI then running semantic-release in `cli/` and `server/`.
-  - Ensure CI success is a gate; fetch-depth=0 already set.
-- [ ] Local validation commands
-  - Document quick checks: `poetry run semantic-release version --print`, `poetry run cz commit`, `poetry run cz changelog`, `poetry build`.
-- [ ] Tag seeding and baselines
-  - If needed, seed initial `cli-v0.0.1` and `server-v0.0.1` tags to anchor history.
-- [ ] Secrets and tokens
-  - Confirm `GITHUB_TOKEN` scope is sufficient for tagging and releases; PyPI remains out of scope.
-- [ ] Documentation update
-  - Add a concise "Release Automation" section to CONTRIBUTING.md (workflow, commands, expectations, troubleshooting pointers).
-- [ ] Optional helper script
-  - `scripts/test-release.sh` to check last tag, commits since tag, and run `semantic-release version --print` for diagnostics if this cannot be achieved via VS Code Task.
+
+### Completed
+- [x] Document conventional commits and recommend `poetry run cz commit`.
+- [x] Add VS Code task alias for conventional commits.
+- [x] Document local validation commands (`semantic-release version --print`, `cz commit`, `cz changelog`, `poetry build`).
+- [x] Add helper script `scripts/test-release.sh` for tag/next-version diagnostics.
+- [x] Add CONTRIBUTING "Release Automation" section covering workflow, commands, expectations.
+- [x] Switch semantic-release commit parser to `conventional` in cli/ and server/.
+- [x] Make release helper run from repo root to avoid semantic-release repo-dir warning.
+
+### In Progress / Next (prioritized)
+- [ ] Version source of truth per package stays in `pyproject.toml` and `__version__` modules; confirm semantic-release still updates both and preserves tag formats (`cli-v{version}`, `server-v{version}`).
+- [ ] Changelog policy: converge on a single root `CHANGELOG.md` updated by semantic-release for both packages; document any per-package exceptions.
+- [ ] Release workflow hardening: keep `.github/workflows/release.yml` invoking CI then semantic-release in `cli/` and `server/`; verify CI success remains a gate and `fetch-depth=0` persists.
+- [ ] Tag seeding on main after parser switch (e.g., `cli-v0.1.0`, `server-v0.1.0`) to anchor history before enabling automation.
+- [ ] Secrets and tokens: confirm `GITHUB_TOKEN` scope is sufficient for tagging and releases; PyPI remains out of scope.
+- [ ] Post-switch validation: run `scripts/test-release.sh` from repo root, `cli/`, and `server/`; capture outputs to prove repo-dir change and version detection behave (current runs still emit repo-dir warning; need follow-up).
 
 ## Risks / Mitigations
 - Non-conventional commits block version bumps → mitigate with cz guidance and CI linting option.

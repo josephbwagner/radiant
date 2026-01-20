@@ -141,6 +141,9 @@
     },
     "github.copilot.chat.codeGeneration.useInstructionFiles": true,
     "chat.tools.terminal.autoApprove": {
-        "git checkout": true
+        "git checkout": true,
+        "./scripts/test-release.sh": true,
+        "/workspaces/radiant/scripts/test-release.sh": true,
+        "poetry": true
     }
 }

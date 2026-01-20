@@ -50,6 +50,15 @@
       "problemMatcher": []
     },
     {
+      "label": "Conventional Commit",
+      "type": "shell",
+      "command": "poetry run cz commit",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "CI: all (local)",
       "dependsOn": ["Python: ci-checks", "Frontend: ci-checks", "Docs: build (CI parity)", "Security: bandit", "Pre-commit: run all"],
       "dependsOrder": "sequence",
